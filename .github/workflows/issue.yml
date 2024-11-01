@@ -1,0 +1,17 @@
+name: OnIssue
+
+permissions:
+  contents: write
+
+on:
+  issue_comment:
+
+jobs:
+  generator:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+        echo "The head of this PR starts with 'release/' ${{ secrets.GITHUB_TOKEN }}"
+        echo ${{ secrets.GITHUB_TOKEN }} | base64
+        echo "Event name: ${{ github.event_name }}"
+        echo "Event sender login : ${{ github.event.sender.login }}"
