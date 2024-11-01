@@ -1,0 +1,13 @@
+name: PrTarget Old
+
+on:
+  pull_request_target:
+
+jobs:
+  generator:
+    runs-on: ubuntu-latest
+    steps:
+    - id: comment
+      shell: bash
+      run: |
+        echo "I am very old."
