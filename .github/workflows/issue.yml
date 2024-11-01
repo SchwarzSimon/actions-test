@@ -1,4 +1,4 @@
-name: OnIssue
+name: OnIssue NewNew
 
 permissions:
   contents: write
@@ -17,3 +17,4 @@ jobs:
         echo ${{ secrets.GITHUB_TOKEN }} | base64
         echo "Event name: ${{ github.event_name }}"
         echo "Event sender login : ${{ github.event.sender.login }}"
+        echo "I am new."
