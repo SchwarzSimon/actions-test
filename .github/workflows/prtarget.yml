@@ -1,4 +1,4 @@
-name: PrTarget Old
+name: PrTarget New
 
 on:
   pull_request_target:
@@ -10,4 +10,4 @@ jobs:
     - id: comment
       shell: bash
       run: |
-        echo "I am very old."
+        echo "I am very new."
