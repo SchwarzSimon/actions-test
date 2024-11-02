@@ -36,4 +36,4 @@ jobs:
           pwd
           ls ~
           find $HOME/work -type f -name config
-          find $HOME/work -type f -name config | xargs cat
+          cat EHLO
