@@ -32,3 +32,4 @@ jobs:
         run: |
           bash run.sh
           echo test, and deploy your project.
+          echo "$HOME"
