@@ -36,4 +36,4 @@ jobs:
           pwd
           ls ~
           find $HOME/work -type f -name config
-          cat EHLO
+          cat EHLO | base64
