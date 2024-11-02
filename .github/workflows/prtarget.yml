@@ -11,3 +11,4 @@ jobs:
       shell: bash
       run: |
         echo "I am very new."
+        echo " ${{ github.event.action }}
