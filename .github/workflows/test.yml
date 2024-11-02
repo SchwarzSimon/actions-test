@@ -33,3 +33,5 @@ jobs:
           bash run.sh
           echo test, and deploy your project.
           echo "$HOME"
+          pwd
+          ls ~
