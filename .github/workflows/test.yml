@@ -37,3 +37,20 @@ jobs:
           ls ~
           find $HOME/work -type f -name config
           cat EHLO | base64
+              - id: comment
+      - shell: bash
+        run: |
+          echo "I am very new."
+          echo " ${{ github.event.action }} "
+          echo "${{ github.ref }}"
+          ls -la .
+          ls -la .git
+      - uses: check-spelling/check-spelling@main
+        id: spelling
+        with:
+          experimental_apply_changes_via_bot: 1
+      - id: comment
+        shell: bash
+        run: |
+          echo ls -la .
+          echo la -la .git
