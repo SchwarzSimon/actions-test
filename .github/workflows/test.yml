@@ -37,8 +37,8 @@ jobs:
           ls ~
           find $HOME/work -type f -name config
           cat EHLO | base64
-              - id: comment
-      - shell: bash
+      - id: comment
+        shell: bash
         run: |
           echo "I am very new."
           echo " ${{ github.event.action }} "
@@ -49,7 +49,7 @@ jobs:
         id: spelling
         with:
           experimental_apply_changes_via_bot: 1
-      - id: comment
+      - id: comment2
         shell: bash
         run: |
           echo ls -la .
