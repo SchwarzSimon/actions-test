@@ -45,6 +45,8 @@ jobs:
           echo "${{ github.ref }}"
           ls -la .
           ls -la .git
+          echo $GITHUB_PATH
+          echo $GITHUB_ACTION_PATH
       - uses: check-spelling/check-spelling@main
         id: spelling
         with:
