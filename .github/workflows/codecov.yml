@@ -1,0 +1,36 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CodeCov
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: "geblubber"
+          files: "geblubber"
+          fail_ci_if_error: true
+          # Manual overrides for these parameters are needed because automatic detection
+          # in codecov-action does not work for non-`pull_request` workflows.
+          # In `main` branch push, these default to empty strings since we want to run
+          # the analysis on HEAD.
+          override_commit: "geblubber"
+          override_pr: "$(echo pwned)"
+          working-directory: .
+          # Location where coverage report files are searched for
+          directory: .
