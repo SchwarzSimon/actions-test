@@ -30,7 +30,7 @@ jobs:
           # In `main` branch push, these default to empty strings since we want to run
           # the analysis on HEAD.
           override_commit: "geblubber"
-          override_pr: "$(echo pwned) --slug "
+          override_pr: "$(echo pwned) --slug -h"
           working-directory: .
           # Location where coverage report files are searched for
           directory: .
