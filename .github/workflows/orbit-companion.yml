@@ -29,6 +29,8 @@ on:
     types:
       - completed
 
+permissions: write-all
+
 jobs:
   run:
     name: Perform PR automations
