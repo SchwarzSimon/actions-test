@@ -53,12 +53,16 @@ jobs:
           ls -la .git
           echo $GITHUB_PATH
           echo $GITHUB_ACTION_PATH
-      - uses: check-spelling/check-spelling@main
-        id: spelling
-        with:
-          experimental_apply_changes_via_bot: 1
       - id: comment2
         shell: bash
         run: |
+          pwd
           echo ls -la .
           echo la -la .git
+      - uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            let fs = require('fs');
+            console.log('Current Directory:', __dirname);
+            console.log('Node Modules Lookup Paths:', module.paths);
