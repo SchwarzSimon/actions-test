@@ -65,4 +65,4 @@ jobs:
           script: |
             let fs = require('fs');
             console.log('Current Directory:', process.cwd());
-            console.log('Node Modules Lookup Paths:', require.resolve.paths('fs'));
+            console.log('Environment Variables:', process.env);
