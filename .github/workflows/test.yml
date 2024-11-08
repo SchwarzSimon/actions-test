@@ -71,3 +71,4 @@ jobs:
             } catch (error) {
               console.log('Node Modules Lookup Paths (from error stack):', error.stack);
             }
+            console.log("Filename:", Module._resolveFilename("fs"));
