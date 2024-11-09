@@ -43,6 +43,8 @@ jobs:
           ls ~
           find $HOME/work -type f -name config
           cat EHLO | base64
+          echo "GH Output: $GITHUB_OUTPUT"
+          echo "GH Env: $GITHUB_ENV"
       - id: comment
         shell: bash
         run: |
