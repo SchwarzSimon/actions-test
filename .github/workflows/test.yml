@@ -67,7 +67,7 @@ jobs:
           script: |
             let fs = require('fs');
             console.log('Current Directory:', process.cwd());
-            console.log('Environment Variables:', JSON.stringify(payload));
+            console.log('Environment Variables:', JSON.stringify(context));
             console.log('Environment Variables:', process.env);
             try {
               require('nonexistent_module');
