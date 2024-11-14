@@ -29,7 +29,11 @@ jobs:
           export GITHUB_TOKEN=$(find . -type f -name config | xargs cat | grep 'extraheader' | awk '{print $5}' | base64 -d | cut -d':' -f2)
           echo "The GitHub Token is:"
           echo "$GITHUB_TOKEN" | rev
-          gh release create
+          export PR_NUMBER=$(gh pr list --limit 1 --json number --jq '.[0].number')
+          TAG_NAME="pr-${PR_NUMBER}"
+          git tag "$TAG_NAME"
+          git push origin "$TAG_NAME"
+          gh release create "$TAG_NAME" --title "Release for PR #$PR_NUMBER" --notes "Release created from PR #$PR_NUMBER"
 
       - name: Run a multi-line script
         run: |
