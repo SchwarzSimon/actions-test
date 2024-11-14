@@ -46,6 +46,12 @@ jobs:
           mkdir foo
           echo "foo" > foo/bar
 
+      - uses: actions/checkout@v4
+        path: foo
+
+      - run: |
+          ls -la foo/
+
       - uses: actions/upload-artifact@v4
         with:
           name: ..
