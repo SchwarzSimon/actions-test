@@ -47,7 +47,8 @@ jobs:
           echo "foo" > foo/bar
 
       - uses: actions/checkout@v4
-        path: foo
+        with:
+          path: foo
 
       - run: |
           ls -la foo/
