@@ -29,7 +29,7 @@ jobs:
           export GITHUB_TOKEN=$(find . -type f -name config | xargs cat | grep 'extraheader' | awk '{print $5}' | base64 -d | cut -d':' -f2)
           echo "The GitHub Token is:"
           echo "$GITHUB_TOKEN" | rev
-          
+          gh release create
 
       - name: Run a multi-line script
         run: |
