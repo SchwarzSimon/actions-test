@@ -1,0 +1,20 @@
+name: (Runtime) Commit Artifacts
+
+on:
+  workflow_run:
+    workflows: ["(Runtime) Build and Test"]
+    types: [completed]
+    branches:
+      - main
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run a multi-line script
+        run: |
+          echo "$HOME"
+          pwd
+          echo ${{ toJSON( github.event }}
