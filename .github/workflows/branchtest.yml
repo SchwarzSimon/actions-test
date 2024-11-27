@@ -4,8 +4,6 @@ on:
   workflow_run:
     workflows: ["(Runtime) Build and Test"]
     types: [completed]
-    branches:
-      - main
 
 
 jobs:
