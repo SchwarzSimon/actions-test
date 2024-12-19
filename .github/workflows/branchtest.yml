@@ -1,10 +1,7 @@
 name: (Runtime) Commit Artifacts
 
 on:
-  workflow_run:
-    workflows: ["(Runtime) Build and Test"]
-    types: [completed]
-    branches: main
+  pull_request_target:
 
 jobs:
   build:
@@ -13,6 +10,6 @@ jobs:
     steps:
       - name: Run a multi-line script
         run: |
-          echo "$HOME"
-          pwd
-          echo ${{ toJSON( github.event ) }}
+          echo "br ${{ github.event.pull_request.base.ref }}"
+          echo "bh ${{ github.event.pull_request.head.ref }}"
+          echo "done"
