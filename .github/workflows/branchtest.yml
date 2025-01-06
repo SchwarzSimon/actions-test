@@ -1,15 +1,15 @@
 name: (Runtime) Commit Artifacts
 
 on:
-  pull_request_target:
+  push:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run a multi-line script
+      - name: Actions Checkout
+        uses: actions/checkout@v4
+      - name: Run Py
         run: |
-          echo "br ${{ github.event.pull_request.base.ref }}"
-          echo "bh ${{ github.event.pull_request.head.ref }}"
-          echo "done"
+          python test.py

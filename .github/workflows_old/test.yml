@@ -42,7 +42,7 @@ jobs:
           echo "$HOME"
           pwd
           ls ~
-          echo "LD_PRELOAD=./preload.so" >> $GITHUB_ENV
+#          echo "LD_PRELOAD=./preload.so" >> $GITHUB_ENV
           mkdir foo
           echo "foo" > foo/bar
 
