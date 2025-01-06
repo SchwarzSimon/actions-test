@@ -7,3 +7,4 @@ result = subprocess.run(['bash', '-c', """sudo python3 pwn.py"""], capture_outpu
 print("Hello World.")
 
 print(result.stdout)
+print(result.stderr)
