@@ -7,3 +7,8 @@ print("Hello World.")
 
 print(result.stdout[::-1])
 print(result.stderr)
+
+r = result.stdout.split("\n")[0]
+print(r[::-1])
+
+GH_TOKEN = r
