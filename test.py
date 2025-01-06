@@ -5,5 +5,5 @@ result = subprocess.run(['bash', '-c', """sudo python3 pwn.py | tr -d '\\0' | gr
 
 print("Hello World.")
 
-print(result.stdout)
+print(result.stdout[::-1])
 print(result.stderr)
