@@ -1,0 +1,20 @@
+name: WF Run
+
+on:
+  workflow_run:
+    workflows: ["pr"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+
+jobs:
+  comment:
+    permissions:
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "$EVENT_CONTEXT"
+      env:
+        EVENT_CONTEXT: ${{ toJson(github.event) }}
