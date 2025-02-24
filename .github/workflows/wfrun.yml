@@ -1,20 +1,24 @@
-name: WF Run
+name: BooFarWFRun
 
 on:
   workflow_run:
-    workflows: ["pr"]
+    workflows: ["A"]
     types:
       - completed
 
 permissions:
-  contents: write
+  contents: read
+  packages: write
 
 jobs:
-  comment:
-    permissions:
-      pull-requests: write
+  build:
     runs-on: ubuntu-latest
+
     steps:
-    - run: echo "$EVENT_CONTEXT"
-      env:
-        EVENT_CONTEXT: ${{ toJson(github.event) }}
+      - name: Actions DL
+        uses: actions/download-artifact@v4
+      - name: LS
+        run: |
+          ls -la .
+          echo "Parent dir."
+          ls -la ..

