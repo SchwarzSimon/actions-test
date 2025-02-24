@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Actions DL
         uses: actions/download-artifact@v4
+        with:
+          run-id: ${{ github.event.workflow_run.id }}
       - name: LS
         run: |
           ls -la .
