@@ -2,7 +2,7 @@ name: BooFarWFRun
 
 on:
   workflow_run:
-    workflows: ["A"]
+    workflows: ["UploadArt"]
     types:
       - completed
 
