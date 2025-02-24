@@ -16,10 +16,12 @@ jobs:
       - name: Actions DL
         uses: actions/download-artifact@v4
         with:
+          path: artifacts/
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: LS
         run: |
+          echo "Artifacts dir:"
+          ls -la artifacts/
+          echo "Current directory."
           ls -la .
-          echo "Parent dir."
-          ls -la ..
