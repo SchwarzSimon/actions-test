@@ -1,4 +1,4 @@
-name: BooFarWFRun
+name: WF-Download
 
 on:
   workflow_run:
