@@ -2,7 +2,8 @@ name: kernelCTF PR check
 on:
   push:
 
-permissions: {}
+permissions: read-all
+
 jobs:
   job1:
     runs-on: ubuntu-latest
