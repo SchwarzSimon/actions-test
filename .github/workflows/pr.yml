@@ -34,20 +34,3 @@ jobs:
     - name: Commit distribution files
       run: |
         bash run.sh
-
-jobs:
-  comment:
-    permissions:
-      pull-requests: write
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      with:
-        fetch-depth: 2
-        ref: ${{ github.event.pull_request.head.sha }}
-
-    - run: echo "$EVENT_CONTEXT"
-      env:
-        EVENT_CONTEXT: ${{ toJson(github.event) }}
-    - run: git branch --show-current
