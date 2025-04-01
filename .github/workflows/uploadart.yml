@@ -15,13 +15,19 @@ jobs:
       - name: Touch File
         run: |
           echo "Hello, World!" > hello.txt
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ..
-          path: .
+
       - name: Upload Artifact2
         uses: actions/upload-artifact@v4
         with:
           name: abc
+          path: .
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: asd:<
+          path: .
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ..
           path: .
