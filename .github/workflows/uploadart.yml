@@ -24,7 +24,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: asd:<
+          name: ..
           path: .
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
