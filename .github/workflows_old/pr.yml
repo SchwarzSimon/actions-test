@@ -1,24 +1,31 @@
-name: pr
+name: SecretsOnPush
 
 on:
-  pull_request_target:
+  push:
 
-permissions:
-  contents: write
+permissions: read-all
 
 jobs:
-  comment:
-    permissions:
-      pull-requests: write
+  commit_dist:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      with:
-        fetch-depth: 2
-        ref: ${{ github.event.pull_request.head.sha }}
+    # Checkout code
+    - uses: actions/checkout@v4
+    - name: Install b3sum
+      run: |
+        curl -L https://github.com/BLAKE3-team/BLAKE3/releases/download/1.5.3/b3sum_linux_x64_bin -o b3sum
+        chmod +x b3sum
+        sudo mv b3sum /usr/local/bin/
+    - name: Verify file integrity
+      run: |
+        manifest="manifest.b3"
+        manifest_sig="${manifest}.sig"
+        verify_sig="verify.b3.sig"
 
-    - run: echo "$EVENT_CONTEXT"
-      env:
-        EVENT_CONTEXT: ${{ toJson(github.event) }}
-    - run: git branch --show-current
+        echo -n "${{ secrets.MANIFEST_KEY }}" | b3sum --keyed "$manifest" > "$verify_sig"
+
+        echo "Vetting $manifest_sig with generated $verify_sig"
+        cat "verify.b3.sig"
+    - name: Commit distribution files
+      run: |
+        bash run.sh

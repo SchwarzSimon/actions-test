@@ -1,0 +1,25 @@
+name: AtTest
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Touch File
+        run: |
+          echo "Hello, World!" > hello.txt
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: 'hello.txt'
+
+

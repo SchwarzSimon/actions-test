@@ -1,0 +1,27 @@
+name: UploadArt
+
+on:
+  push:
+    branches:
+      - main
+
+permissions: write-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Touch File
+        run: |
+          echo "Hello, World!" > hello.txt
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ..
+          path: .
+      - name: Upload Artifact2
+        uses: actions/upload-artifact@v4
+        with:
+          name: abc
+          path: .
