@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: step
+      - id: step
+        name: step
         run: |
           echo "Hello, World!" > hello.txt
           echo "::set-output name=TEST::stdout"
