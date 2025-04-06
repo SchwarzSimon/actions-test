@@ -15,19 +15,16 @@ jobs:
       - name: Touch File
         run: |
           echo "Hello, World!" > hello.txt
+          echo "::set-output name=TEST::stdout"
+          echo "TEST=viafile" >> $GITHUB_OUTPUT
 
-      - name: Upload Artifact2
-        uses: actions/upload-artifact@v4
-        with:
-          name: abc
-          path: .
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ..
-          path: .
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ..
-          path: .
+          echo "AB=viafile" >> $GITHUB_OUTPUT
+          echo "::set-output name=TEST::stdout"
+
+          echo "foobar foobar ::set-output name=DEF::stdout"
+
+      - name: Print results
+        run: |
+          echo "TEST=${{ steps.step.outputs.TEST }}"
+          echo "AB=${{ steps.step.outputs.AB }}"
+          echo "DEF=${{ steps.step.outputs.DEF }}"
