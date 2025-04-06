@@ -23,9 +23,12 @@ jobs:
           echo "::set-output name=TEST::stdout"
 
           echo "foobar foobar ::set-output name=DEF::stdout"
+          echo "::set-output name=XYZ::stdout1"
+          echo "::set-output name=XYZ::stdout2"
 
       - name: Print results
         run: |
           echo "TEST=${{ steps.step.outputs.TEST }}"
           echo "AB=${{ steps.step.outputs.AB }}"
           echo "DEF=${{ steps.step.outputs.DEF }}"
+          echo "XYZ=${{ steps.step.outputs.XYZ }}"
