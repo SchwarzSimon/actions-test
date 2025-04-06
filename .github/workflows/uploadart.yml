@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Touch File
+      - name: step
         run: |
           echo "Hello, World!" > hello.txt
           echo "::set-output name=TEST::stdout"
