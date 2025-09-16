@@ -12,34 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - id: checkout
-        uses: actions/checkout@v2
       - id: step
         name: step
         run: |
-          echo "Hello, World!" > hello.txt
-          echo "::set-output name=TEST::stdout"
-          echo "TEST=viafile" >> $GITHUB_OUTPUT
-
-          echo "AB=viafile" >> $GITHUB_OUTPUT
-          echo "::set-output name=TEST::stdout"
-
-          echo "foobar foobar ::set-output name=DEF::stdout"
-          echo "::set-output name=XYZ::stdout1"
-          echo "::set-output name=XYZ::stdout2"
-
-          echo "files<<EOF" >> $GITHUB_OUTPUT
-          echo "hello.txt" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-          echo "files<<EOF" >> $GITHUB_OUTPUT
-          echo "hello2.txt" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-
-
-      - name: Print results
-        run: |
-          echo "TEST=${{ steps.step.outputs.TEST }}"
-          echo "AB=${{ steps.step.outputs.AB }}"
-          echo "DEF=${{ steps.step.outputs.DEF }}"
-          echo "XYZ=${{ steps.step.outputs.XYZ }}"
-          echo "files=${{ steps.step.outputs.files }}"
+          mkdir -p .git
+          echo "Hello, world!" > .git/result.txt
+      - id: upload-artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: .
