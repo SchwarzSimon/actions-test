@@ -11,5 +11,7 @@ jobs:
     steps:
     # Checkout code
     - uses: actions/checkout@v4
+      with:
+        submodules: 'recursive'  # Fetch submodules
     - name: Test step
       run: echo "This is a test step"

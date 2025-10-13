@@ -1,0 +1,3 @@
+[submodule "skat"]
+	path = skat
+	url = https://github.com/parablack/skat
