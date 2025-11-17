@@ -1,0 +1,21 @@
+name: Automated Checks
+
+on:
+  pull_request_review:
+
+jobs:
+  test-code:
+    permissions:
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - id: comment
+      shell: bash
+      run: |
+        echo "Boo!"
+        echo " ${{ github.event.action }} "
+        echo "${{ github.ref }}"
+        echo "${{ github.sha }}"
+        ls -la .
+        ls -la .git
