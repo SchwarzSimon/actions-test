@@ -13,7 +13,7 @@ jobs:
     - id: comment
       shell: bash
       run: |
-        echo "Boo!"
+        echo "FooBar!"
         echo " ${{ github.event.action }} "
         echo "${{ github.ref }}"
         echo "${{ github.sha }}"
